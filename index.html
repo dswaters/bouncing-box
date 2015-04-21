@@ -11,9 +11,9 @@
 		[class="box"] {
 			display: block;
 			position: absolute;
-			width: 70px;
+			width: 90px;
 			height: 70px;
-			top: 100px;
+			top: 90px;
 			left: 0px;
 			background-color: teal;
 			font-size: 300%;
@@ -42,19 +42,42 @@
 			boardWidth = $('.board').width();
 
 			// TODO 2
-
-
+			var position;
+			var points;
+			var speed;
+			
+			position = 0;
+			points = 0;
+			speed = 10;
+			var direction = 1;
+			box.css('left', position);
+			box.text(points);
+			
 			// TODO 3 / 4
+
 			update = function() {
+				position = position + speed;
+				
+				// when the box hits the end of the screen make it go opposite way				
+				if (position > boardWidth ) {
+					
+				}
+				
 
+				
+				box.css('left', position);
 			};
-
+		
 
 			// TODO 5 / 6
 			handleBoxClick = function() {
-
+				speed = speed + 3;
+				points = points + 1; 
+				position = 0;
+				box.text(points);
 			};
 
+			
 
 			//this calls update every 50 milliseconds
 			setInterval(update, 50);
